@@ -1,7 +1,6 @@
 package sample.controller;
 
-import java.util.UUID;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +11,7 @@ import sample.model.TodoId;
 @RestController
 public class TodoController {
 
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/api/todo", method=RequestMethod.POST)
 	public TodoId createTodo(String text){
 		TodoId id = new TodoId();
@@ -21,6 +21,7 @@ public class TodoController {
 		return id;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/api/todo/{todoId}", method=RequestMethod.PUT)
 	public TodoId completeTodo(@PathVariable("todoId") String todoId){
 		TodoId id = new TodoId(todoId);
