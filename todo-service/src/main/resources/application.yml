@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: todo-service
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:todo;INIT=CREATE TABLE IF NOT EXISTS todo_item (id uuid not null, text text not null, completed boolean not null, constraint pk_todo_item PRIMARY KEY(id));
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: false
+    show-sql: true
+
