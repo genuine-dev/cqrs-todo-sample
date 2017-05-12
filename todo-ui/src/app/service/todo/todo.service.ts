@@ -17,9 +17,9 @@ export class TodoService {
 
   listAll() {
     this.http
-      .get('http://localhost:8080/api/todos')
+      .get('http://localhost:8080/api/todo')
       .subscribe(response => {
-        this._todos.next(Object.assign([], response.json().data));
+        this._todos.next(Object.assign([], response.json()));
       })
   }
 
@@ -28,6 +28,7 @@ export class TodoService {
     this.http
       .post('http://localhost:8080/api/todo/', text)
       .subscribe(response => {
+        todo.id = response.json().id;
         let newState = Object.assign([], this._todos.getValue());
         newState.push(todo);
         this._todos.next(newState);
