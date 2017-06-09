@@ -5,6 +5,8 @@ import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import sample.model.TodoId;
+
 @Entity
 public class TodoItem {
 	@Id
